@@ -2,7 +2,10 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -30,6 +33,32 @@ public class clienteDAO {
 		}finally{
 			ConnectionFactory.closeConnection(con, stmt);
 		}
+	}
+	public List<cliente> read(){
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		List<cliente> clientes = new ArrayList<>();
+		
+		try {
+			stmt = con.prepareStatement("SELECT * FROM cliente;");
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				cliente f = new cliente();
+				f.setIdCliente(rs.getInt("idCliente"));
+				f.setNome(rs.getString("nome"));
+				f.setCPF(rs.getInt("cpf"));
+				f.setEndereco(rs.getString("endereço"));
+				f.setEstadoCivil(rs.getString("estadoCivil"));
+				clientes.add(f);
+			}
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao buscar as informações do BD: " + e);
+			e.printStackTrace();
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt, rs);
+		}
+		return clientes;
 	}
 
 }
