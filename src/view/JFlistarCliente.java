@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
@@ -16,6 +17,8 @@ import model.dao.clienteDAO;
 import model.dao.clienteDAO;
 
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JFlistarCliente extends JFrame {
 
@@ -71,6 +74,18 @@ public class JFlistarCliente extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		btnAlterar = new JButton("Alterar cliente");
+		btnAlterar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if(tblClientes.getSelectedRow()!= -1) {
+						JFAtualizarCliente af = new JFAtualizarCliente(
+								(int)tblClientes.getValueAt(tblClientes.getSelectedRow(), 0));
+						af.setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(null, "Selecione um cliente!");
+					}
+					readJTable();
+				}
+			});
 		btnAlterar.setBounds(277, 351, 123, 23);
 		contentPane.add(btnAlterar);
 		

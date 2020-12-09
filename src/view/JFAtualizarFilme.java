@@ -27,9 +27,8 @@ public class JFAtualizarFilme extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtTitulo;
-	private JTextField txtCategoria;
-	private JTextField txtSinopse;
 	private JTextField textCategoria;
+	private JTextField txtSinopse;
 	
 	private static int IdFilme;
 
@@ -168,7 +167,7 @@ public class JFAtualizarFilme extends JFrame {
 		lblId.setText(String.valueOf(f.getIdFilme()));
 		txtTitulo.setText(f.getTitulo());
 		txtSinopse.setText(f.getSinopse());
-		txtCategoria.setText(f.getCategoria());
+		textCategoria.setText(f.getCategoria());
 		spTempo.setValue(f.getTempo());
 		if(f.isImagem3d() == true) {
 			btn3d.setSelected(true);
@@ -186,6 +185,7 @@ public class JFAtualizarFilme extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				filme f = new filme();
 				filmeDAO dao = new filmeDAO();
+				f.setIdFilme(Integer.parseInt(lblId.getText()));
 				f.setTitulo(txtTitulo.getText());
 				f.setSinopse(txtSinopse.getText());
 				f.setCategoria(textCategoria.getText());
@@ -200,7 +200,7 @@ public class JFAtualizarFilme extends JFrame {
 				}else if (btnLegendado.isSelected()) {
 					f.setDublado(false);
 				}
-				dao.create(f);
+				dao.update(f);
 			}
 				
 		});

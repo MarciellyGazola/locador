@@ -24,7 +24,6 @@ public class JFlistarFilmes extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tblFilmes;
-	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -77,7 +76,6 @@ public class JFlistarFilmes extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JButton btnAlterar = new JButton("Alterar filme");
-		btnAlterar.setAction(action);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tblFilmes.getSelectedRow()!= -1) {
@@ -114,12 +112,6 @@ public class JFlistarFilmes extends JFrame {
 		}
 		
 	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
+	
+	
 }
