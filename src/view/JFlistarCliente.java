@@ -11,9 +11,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import model.bean.cliente;
-import model.bean.filme;
+import model.bean.cliente;
 import model.dao.clienteDAO;
-import model.dao.filmeDAO;
+import model.dao.clienteDAO;
 
 import javax.swing.JButton;
 

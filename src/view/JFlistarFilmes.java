@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
@@ -14,11 +15,16 @@ import model.bean.filme;
 import model.dao.filmeDAO;
 
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class JFlistarFilmes extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tblFilmes;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -63,10 +69,27 @@ public class JFlistarFilmes extends JFrame {
 		scrollPane.setViewportView(tblFilmes);
 		
 		JButton btnCadastrar = new JButton("Cadastrar filme");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnCadastrar.setBounds(10, 330, 139, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnAlterar = new JButton("Alterar filme");
+		btnAlterar.setAction(action);
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tblFilmes.getSelectedRow()!= -1) {
+					JFAtualizarFilme af = new JFAtualizarFilme(
+							(int)tblFilmes.getValueAt(tblFilmes.getSelectedRow(), 0));
+					af.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Selecione um filme!");
+				}
+				readJTable();
+			}
+		});
 		btnAlterar.setBounds(268, 330, 111, 23);
 		contentPane.add(btnAlterar);
 		
@@ -90,5 +113,13 @@ public class JFlistarFilmes extends JFrame {
 			});
 		}
 		
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
