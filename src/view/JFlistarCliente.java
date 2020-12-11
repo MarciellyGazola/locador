@@ -12,10 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import model.bean.cliente;
-import model.bean.cliente;
 import model.dao.clienteDAO;
-import model.dao.clienteDAO;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

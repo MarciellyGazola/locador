@@ -4,7 +4,7 @@ public class cliente {
 		private int idCliente;
 		private String nome;
 		private String endereco;
-		private int CPF;
+		private String CPF;
 		private String estadoCivil;
 		
 		public int getIdCliente() {
@@ -25,10 +25,10 @@ public class cliente {
 		public void setEndereco(String endereco) {
 			this.endereco = endereco;
 		}
-		public int getCPF() {
+		public String getCPF() {
 			return CPF;
 		}
-		public void setCPF(int CPF) {
+		public void setCPF(String CPF) {
 			this.CPF = CPF;
 		}
 		public String getEstadoCivil() {

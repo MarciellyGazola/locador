@@ -22,7 +22,7 @@ public class clienteDAO {
 			stmt = con.prepareStatement("INSERT INTO CLIENTE (nome, cpf, endereço, EstadoCivil) VALUES"
 					+ "(?,?,?,?)");
 			stmt.setString(1, f.getNome());
-			stmt.setInt(2, f.getCPF());
+			stmt.setString(2, f.getCPF());
 			stmt.setString(3, f.getEndereco());
 			stmt.setString(4, f.getEstadoCivil());
 			
@@ -47,7 +47,7 @@ public class clienteDAO {
 				cliente f = new cliente();
 				f.setIdCliente(rs.getInt("idCliente"));
 				f.setNome(rs.getString("nome"));
-				f.setCPF(rs.getInt("cpf"));
+				f.setCPF(rs.getString("cpf"));
 				f.setEndereco(rs.getString("endereço"));
 				f.setEstadoCivil(rs.getString("estadoCivil"));
 				clientes.add(f);
@@ -73,9 +73,9 @@ public class clienteDAO {
 			if(rs != null && rs.next()) {
 				f.setIdCliente(rs.getInt("idCliente"));
 				f.setNome(rs.getString("nome"));
-				f.setCPF(rs.getInt("CPF"));
+				f.setCPF(rs.getString("CPF"));
 				f.setEndereco(rs.getString("endereço"));
-				f.setEstadoCivil(rs.getString("estado civil"));
+				f.setEstadoCivil(rs.getString("estadoCivil"));
 			}		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -92,12 +92,12 @@ public class clienteDAO {
 		
 		try {
 			stmt = con.prepareStatement("UPDATE cliente SET nome=?, CPF=?,"
-					+ "endereco=?, estadoCivil=? WHERE idCliente=?;");
+					+ "endereço=?, estadoCivil=? WHERE idCliente=?;");
 			stmt.setString(1, f.getNome());
-			stmt.setInt(2, f.getCPF());
+			stmt.setString(2, f.getCPF());
 			stmt.setString(3, f.getEndereco());
 			stmt.setString(4, f.getEstadoCivil());
-			stmt.setInt(7, f.getIdCliente());
+			stmt.setInt(5, f.getIdCliente());
 			stmt.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Clientes atualizado com sucesso!");
 		} catch (SQLException e) {

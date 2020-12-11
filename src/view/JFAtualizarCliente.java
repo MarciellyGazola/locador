@@ -87,6 +87,13 @@ public class JFAtualizarCliente extends JFrame {
 		lblEstadoCivil.setBounds(10, 147, 94, 14);
 		contentPane.add(lblEstadoCivil);
 		
+		lblId.setText(String.valueOf(f.getIdCliente()));
+		txtNome.setText(f.getNome());
+		txtCPF.setText(f.getCPF());
+		txtEndereco.setText(f.getEndereco());
+		txtEstadoCivil.setText(f.getEstadoCivil());
+		
+		
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,7 +101,7 @@ public class JFAtualizarCliente extends JFrame {
 				clienteDAO dao = new clienteDAO();
 				f.setNome(txtNome.getText());
 				f.setEndereco(txtEndereco.getText());
-				f.setCPF(Integer.parseInt(txtCPF.getText().toString()));
+				f.setCPF(txtCPF.getText());
 				f.setEstadoCivil(txtEstadoCivil.getText());
 				dao.update(f);
 			}

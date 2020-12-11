@@ -102,7 +102,7 @@ public class JFcadastrarCliente extends JFrame {
 				clienteDAO dao = new clienteDAO();
 				f.setNome(txtNome.getText());
 				f.setEndereco(txtEndereco.getText());
-				f.setCPF(Integer.parseInt(txtCPF.getText().toString()));
+				f.setCPF(txtCPF.getText());
 				f.setEstadoCivil(txtEstadoCivil.getText());
 				dao.create(f);
 			}
