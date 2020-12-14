@@ -119,6 +119,7 @@ public class JFAtualizarCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cliente f = new cliente();
 				clienteDAO dao = new clienteDAO();
+				f.setIdCliente(Integer.parseInt(lblId.getText()));
 				f.setNome(txtNome.getText());
 				f.setEndereco(txtEndereco.getText());
 				f.setCPF(txtCPF.getText());
