@@ -72,20 +72,40 @@ public class JFAtualizarCliente extends JFrame {
 		contentPane.add(lblId);
 		
 		JLabel lblNomeCompleto = new JLabel("Nome Completo");
-		lblNomeCompleto.setBounds(10, 36, 75, 14);
+		lblNomeCompleto.setBounds(10, 36, 153, 14);
 		contentPane.add(lblNomeCompleto);
+
+		txtNome = new JTextField();
+		txtNome.setBounds(95, 36, 329, 20);
+		contentPane.add(txtNome);
+		txtNome.setColumns(10);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o");
 		lblEndereco.setBounds(10, 72, 94, 14);
 		contentPane.add(lblEndereco);
 		
+		txtEndereco = new JTextField();
+		txtEndereco.setBounds(95, 69, 329, 20);
+		contentPane.add(txtEndereco);
+		txtEndereco.setColumns(10);
+		
 		JLabel lblCPF = new JLabel("CPF");
 		lblCPF.setBounds(10, 109, 46, 14);
 		contentPane.add(lblCPF);
 		
+		txtCPF = new JTextField();
+		txtCPF.setBounds(95, 106, 329, 20);
+		contentPane.add(txtCPF);
+		txtCPF.setColumns(10);
+		
 		JLabel lblEstadoCivil = new JLabel("Estado Civil");
 		lblEstadoCivil.setBounds(10, 147, 94, 14);
 		contentPane.add(lblEstadoCivil);
+		
+		txtEstadoCivil = new JTextField();
+		txtEstadoCivil.setBounds(95, 144, 329, 20);
+		contentPane.add(txtEstadoCivil);
+		txtEstadoCivil.setColumns(10);
 		
 		lblId.setText(String.valueOf(f.getIdCliente()));
 		txtNome.setText(f.getNome());
@@ -118,25 +138,7 @@ public class JFAtualizarCliente extends JFrame {
 		btnLimpar.setBounds(335, 209, 89, 23);
 		contentPane.add(btnLimpar);
 		
-		txtNome = new JTextField();
-		txtNome.setBounds(95, 36, 329, 20);
-		contentPane.add(txtNome);
-		txtNome.setColumns(10);
 		
-		txtEndereco = new JTextField();
-		txtEndereco.setBounds(95, 69, 329, 20);
-		contentPane.add(txtEndereco);
-		txtEndereco.setColumns(10);
-		
-		txtCPF = new JTextField();
-		txtCPF.setBounds(95, 106, 329, 20);
-		contentPane.add(txtCPF);
-		txtCPF.setColumns(10);
-		
-		txtEstadoCivil = new JTextField();
-		txtEstadoCivil.setBounds(95, 144, 329, 20);
-		contentPane.add(txtEstadoCivil);
-		txtEstadoCivil.setColumns(10);
 	}
 
 }

@@ -62,7 +62,7 @@ public class JFlistarFilmes extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"idFilme", "T\u00EDtulo", "Categoria", "Tempo"
+				"idFilme", "T\u00EDtulo", "Categoria", "Tempo", "Sinopse"
 			}
 		));
 		scrollPane.setViewportView(tblFilmes);
@@ -107,7 +107,8 @@ public class JFlistarFilmes extends JFrame {
 					f.getIdFilme(),
 					f.getTitulo(),
 					f.getCategoria(),
-					f.getTempo()
+					f.getTempo(),
+					f.getSinopse()
 			});
 		}
 		

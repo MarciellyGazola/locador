@@ -113,15 +113,7 @@ public class JFAtualizarFilme extends JFrame {
 		lblTempo.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblTempo.setBounds(5, 291, 46, 14);
 		contentPane.add(lblTempo);
-		
-		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(320, 377, 109, 23);
-		contentPane.add(btnLimpar);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(165, 377, 109, 23);
-		contentPane.add(btnCancelar);
-		
+	
 		JSpinner spTempo = new JSpinner();
 		spTempo.setBounds(5, 316, 73, 37);
 		contentPane.add(spTempo);
@@ -207,18 +199,13 @@ public class JFAtualizarFilme extends JFrame {
 		btnAtualizar.setBounds(5, 377, 109, 23);
 		contentPane.add(btnAtualizar);
 		
-		txtSinopse = new JTextField();
-		txtSinopse.setBounds(5, 102, 424, 122);
-		contentPane.add(txtSinopse);
-		txtSinopse.setColumns(10);
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(320, 377, 109, 23);
+		contentPane.add(btnLimpar);
 		
-		textCategoria = new JTextField();
-		textCategoria.setBounds(5, 260, 424, 20);
-		contentPane.add(textCategoria);
-		textCategoria.setColumns(10);
-		
-
-		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(165, 377, 109, 23);
+		contentPane.add(btnCancelar);
 		
 	}
 }
