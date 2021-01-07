@@ -107,4 +107,20 @@ public class clienteDAO {
 		}
 	}
 	
+	public void delete(cliente f) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = con.prepareStatement("DELETE FROM cliente WHERE idCliente=?");
+			stmt.setInt(1, f.getIdCliente());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!");
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao excluir: "+ e);
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
 }
