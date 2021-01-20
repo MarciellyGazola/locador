@@ -46,7 +46,7 @@ public class JFcadastrarCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public JFcadastrarCliente() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -105,6 +105,7 @@ public class JFcadastrarCliente extends JFrame {
 				f.setCPF(txtCPF.getText());
 				f.setEstadoCivil(txtEstadoCivil.getText());
 				dao.create(f);
+				dispose();
 			}
 		});
 		
@@ -112,10 +113,23 @@ public class JFcadastrarCliente extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancelar.setBounds(163, 209, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText(null);
+				txtEndereco.setText(null);
+				txtCPF.setText(null);
+				txtEstadoCivil.setText(null);
+			}
+		});
 		btnLimpar.setBounds(335, 209, 89, 23);
 		contentPane.add(btnLimpar);
 	}

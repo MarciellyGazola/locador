@@ -16,6 +16,8 @@ import model.dao.clienteDAO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowEvent;
 
 public class JFlistarCliente extends JFrame {
 
@@ -23,6 +25,7 @@ public class JFlistarCliente extends JFrame {
 	private JTable tblClientes;
 	private JButton btnAlterar;
 	private JButton btnExcluir;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -44,8 +47,15 @@ public class JFlistarCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public JFlistarCliente() {
+		addWindowFocusListener(new WindowFocusListener() {
+			public void windowGainedFocus(WindowEvent arg0) {
+				readJTable();
+			}
+			public void windowLostFocus(WindowEvent arg0) {
+			}
+		});
 		setTitle("Listar Clientes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 670, 424);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,6 +77,12 @@ public class JFlistarCliente extends JFrame {
 		scrollPane.setViewportView(tblClientes);
 		
 		JButton btnCadastrar = new JButton("Cadastrar Cliente");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFcadastrarCliente cf = new JFcadastrarCliente();
+				cf.setVisible(true);
+			}
+		});
 		btnCadastrar.setBounds(10, 351, 150, 23);
 		contentPane.add(btnCadastrar);
 		
@@ -83,7 +99,7 @@ public class JFlistarCliente extends JFrame {
 					readJTable();
 				}
 			});
-		btnAlterar.setBounds(277, 351, 123, 23);
+		btnAlterar.setBounds(194, 351, 123, 23);
 		contentPane.add(btnAlterar);
 		
 		btnExcluir = new JButton("Excluir cliente");
@@ -107,6 +123,15 @@ public class JFlistarCliente extends JFrame {
 		});
 		btnExcluir.setBounds(494, 351, 150, 23);
 		contentPane.add(btnExcluir);
+		
+		btnNewButton = new JButton("Cancelar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(371, 351, 89, 23);
+		contentPane.add(btnNewButton);
 		
 		readJTable();
 	}

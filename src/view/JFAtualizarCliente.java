@@ -125,6 +125,7 @@ public class JFAtualizarCliente extends JFrame {
 				f.setCPF(txtCPF.getText());
 				f.setEstadoCivil(txtEstadoCivil.getText());
 				dao.update(f);
+				dispose();
 			}
 		});
 		
@@ -132,10 +133,23 @@ public class JFAtualizarCliente extends JFrame {
 		contentPane.add(btnAtualizar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnCancelar.setBounds(179, 209, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText(null);
+				txtEndereco.setText(null);
+				txtCPF.setText(null);
+				txtEstadoCivil.setText(null);
+			}
+		});
 		btnLimpar.setBounds(335, 209, 89, 23);
 		contentPane.add(btnLimpar);
 		
